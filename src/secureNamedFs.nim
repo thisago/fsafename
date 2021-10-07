@@ -32,8 +32,6 @@ proc main(dirs: seq[string]) =
         main(@[pc.path])
         if name != validName:
           moveDir(splitted.dir / name, splitted.dir / validName)
-        # echo name
-        # main(@[splitted.dir / validName])
       else: discard
 
 when isMainModule:
