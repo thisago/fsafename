@@ -18,19 +18,22 @@ proc main(dirs: seq[string]) =
         splitted = splitFile pc.path
         name = splitted.name
         validName = secureName name
-      if name == validName:
-        continue
-      styledEcho fgGreen, "Renaming '",
-        fgDefault, styleDim, name,
-        resetStyle, fgGreen, "' to '",
-        fgDefault, validName,
-        fgGreen, "'"
+      if name != validName:
+        styledEcho fgGreen, "Renaming '",
+          fgDefault, styleDim, name,
+          resetStyle, fgGreen, "' to '",
+          fgDefault, validName,
+          fgGreen, "'"
       case pc.kind:
       of pcFile:
-        moveFile(splitted.dir / name, splitted.dir / validName)
+        if name != validName:
+          moveFile(splitted.dir / name, splitted.dir / validName)
       of pcDir:
-        moveDir(splitted.dir / name, splitted.dir / validName)
-        main(@[splitted.dir / validName])
+        main(@[pc.path])
+        if name != validName:
+          moveDir(splitted.dir / name, splitted.dir / validName)
+        # echo name
+        # main(@[splitted.dir / validName])
       else: discard
 
 when isMainModule:
