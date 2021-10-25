@@ -14,6 +14,7 @@ requires "cligen"
 
 bin = @["secureNamedFs"]
 binDir = "build"
+installExt = @["nim"]
 
 task build_release, "Builds the release version":
   exec "nimble -d:release build"
