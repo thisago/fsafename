@@ -1,7 +1,7 @@
 # Package
 
-version       = "0.1.0"
-author        = "HELLoSKUuLL"
+version       = "0.2.0"
+author        = "Thiago Ferreira"
 description   = "Renames to a valid name files and folders"
 license       = "MIT"
 srcDir        = "src"
@@ -12,7 +12,7 @@ srcDir        = "src"
 requires "nim >= 1.5.1"
 requires "cligen"
 
-bin = @["secureNamedFs"]
+bin = @["fsafename"]
 binDir = "build"
 installExt = @["nim"]
 
