@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.2.0"
+version       = "0.2.1"
 author        = "Thiago Ferreira"
 description   = "Renames to a valid name files and folders"
 license       = "MIT"
@@ -9,7 +9,7 @@ srcDir        = "src"
 
 # Dependencies
 
-requires "nim >= 1.5.1"
+requires "nim >= 1.0.0"
 requires "cligen"
 
 bin = @["fsafename"]
