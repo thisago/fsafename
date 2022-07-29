@@ -1,5 +1,11 @@
 # Changelog
 
+## Version 0.3.0 (Jul 29 2022)
+
+- Using `util.forFs.escapeFs` instead local `safename`
+
+---
+
 ## Version 0.2.1 (11/04/2021)
 
 - Reduced minimun Nim version to 1.0.0

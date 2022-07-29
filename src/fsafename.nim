@@ -1,12 +1,5 @@
-## Main module of fsafename
-
-const InvalidChars* = {'/','\\',':','*','?','"','<','>'}
-func safename*(str: string): string =
-  for ch in str:
-    if ch notin InvalidChars:
-      result.add ch
-
 when isMainModule:
+  from pkg/util/forFs import escapeFs
   from std/os import walkDir, pcDir, moveFile, pcFile, moveDir,
                     moveFile, splitFile, `/`
   from std/terminal import styledWriteLine, styledEcho, fgGreen,
@@ -19,7 +12,7 @@ when isMainModule:
         let
           splitted = splitFile pc.path
           name = splitted.name
-          validName = safename name
+          validName = escapeFs name
         if name != validName:
           styledEcho fgGreen, "Renaming '",
             fgDefault, styleDim, name,
